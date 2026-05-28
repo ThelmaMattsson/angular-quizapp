@@ -1,0 +1,38 @@
+<section class="quiz-page">
+  <h1 class="text-white">Angular Glossary</h1>
+
+  <div class="question-card">
+    @if (quizFinished) {
+      <h2>Du fick {{ score }} av {{ shuffledWords.length }} rätt!</h2>
+      <button class="restart-btn" (click)="startQuiz()">Starta om</button>
+    } @else {
+      <app-quiz-settings
+        [questionLimit]="questionLimit"
+        [quizMode]="quizMode"
+        [totalWords]="words.length"
+        (questionLimitChange)="onQuestionLimitChange($event)"
+        (quizModeChange)="changeQuizMode($event)"
+      ></app-quiz-settings>
+      <p class="text-color question-text">
+        Vad är <strong>{{ getQuestionText() }}</strong
+        >?
+      </p>
+      <div class="answer-container">
+        @for (answer of answerOptions; track $index) {
+          <button
+            class="answer-btn"
+            [class.correct]="showAnswerFeedback && answer === correctAnswer"
+            [class.incorrect]="
+              showAnswerFeedback && answer === selectedAnswer && answer !== correctAnswer
+            "
+            (click)="selectAnswer(answer)"
+          >
+            {{ answer }}
+          </button>
+        }
+      </div>
+      <p>{{ score }}/{{ questionIndex }}</p>
+      <p>{{ questionIndex + 1 }}/{{ questionLimit }}</p>
+    }
+  </div>
+</section>

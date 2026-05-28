@@ -1,0 +1,133 @@
+import { Component, inject } from '@angular/core';
+import { Glossary } from '../../services/glossary';
+import { IGlossaryWord } from '../../types/IGlossaryWord';
+import { QuizSettings } from '../../components/quiz-settings/quiz-settings';
+
+@Component({
+  selector: 'app-quiz-page',
+  imports: [QuizSettings],
+  templateUrl: './quiz-page.html',
+  styleUrl: './quiz-page.scss',
+})
+export class QuizPage {
+  private glossaryService = inject(Glossary);
+
+  words: IGlossaryWord[] = [];
+
+  currentQuestion!: IGlossaryWord;
+
+  answerOptions: string[] = [];
+
+  score = 0;
+
+  questionIndex = 0;
+
+  shuffledWords: IGlossaryWord[] = [];
+
+  quizFinished = false;
+
+  selectedAnswer = '';
+
+  showAnswerFeedback = false;
+
+  questionLimit = 10;
+
+  quizMode: 'term-to-definition' | 'definition-to-term' = 'term-to-definition';
+
+  correctAnswer!: string;
+
+  constructor() {
+    this.words = this.glossaryService.getWords();
+    this.shuffledWords = [...this.words]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, this.questionLimit);
+    this.generateQuestion();
+  }
+
+  startQuiz(): void {
+    this.questionLimit = this.questionLimit;
+    this.resetQuiz();
+  }
+
+  generateQuestion(): void {
+    this.currentQuestion = this.shuffledWords[this.questionIndex];
+    this.generateAnswerOptions();
+    console.log(this.questionIndex);
+    console.log(this.shuffledWords.length);
+  }
+
+  generateAnswerOptions(): void {
+    this.correctAnswer = this.getCorrectAnswer();
+    const incorrectAnswers = this.shuffledWords
+      .filter((word) => word.term !== this.currentQuestion.term)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3)
+      .map((word) => (this.quizMode === 'term-to-definition' ? word.definition : word.term));
+    const correctAnswer = this.getCorrectAnswer();
+    this.answerOptions = [correctAnswer, ...incorrectAnswers].sort(() => Math.random() - 0.5);
+  }
+
+  selectAnswer(answer: string): void {
+    if (this.showAnswerFeedback) {
+      return;
+    }
+
+    this.selectedAnswer = answer;
+    this.showAnswerFeedback = true;
+
+    setTimeout(() => {
+      if (answer === this.correctAnswer) {
+        this.score++;
+      }
+      this.showAnswerFeedback = false;
+
+      this.selectedAnswer = '';
+
+      if (this.questionIndex >= this.shuffledWords.length - 1) {
+        this.quizFinished = true;
+        return;
+      }
+      this.questionIndex++;
+
+      this.generateQuestion();
+    }, 1500);
+  }
+
+  getQuestionText(): string {
+    if (this.quizMode === 'term-to-definition') {
+      return this.currentQuestion.term;
+    }
+
+    return this.currentQuestion.definition;
+  }
+
+  getCorrectAnswer(): string {
+    if (this.quizMode === 'term-to-definition') {
+      return this.currentQuestion.definition;
+    }
+
+    return this.currentQuestion.term;
+  }
+
+  changeQuizMode(mode: 'term-to-definition' | 'definition-to-term'): void {
+    this.quizMode = mode;
+    this.generateAnswerOptions();
+  }
+
+  resetQuiz(): void {
+    this.score = 0;
+    this.questionIndex = 0;
+    this.quizFinished = false;
+
+    this.shuffledWords = [...this.words]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, this.questionLimit);
+
+    this.generateQuestion();
+  }
+
+  onQuestionLimitChange(limit: number): void {
+    this.questionLimit = limit;
+    this.resetQuiz();
+  }
+}

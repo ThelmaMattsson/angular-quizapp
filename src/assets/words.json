@@ -1,0 +1,367 @@
+[
+  {
+    "term": "Component",
+    "definition": "En byggsten i Angular som består av template, logik och styling och representerar en del av UI:t.",
+    "course": "angular"
+  },
+  {
+    "term": "Module (NgModule)",
+    "definition": "En container som grupperar komponenter, direktiv och tjänster för att organisera appen.",
+    "course": "angular"
+  },
+  {
+    "term": "Template",
+    "definition": "HTML-vy som definierar hur komponentens data presenteras i UI:t.",
+    "course": "angular"
+  },
+  {
+    "term": "Data Binding",
+    "definition": "Synkronisering mellan komponentens data och vyn, t.ex. interpolation eller property binding.",
+    "course": "angular"
+  },
+  {
+    "term": "Interpolation",
+    "definition": "Visar data i template med {{ }} syntax.",
+    "course": "angular"
+  },
+  {
+    "term": "Property Binding",
+    "definition": "Binder data från komponent till HTML-attribut med [property].",
+    "course": "angular"
+  },
+  {
+    "term": "Event Binding",
+    "definition": "Lyssnar på händelser i UI:t med (event)-syntax, t.ex. klick.",
+    "course": "angular"
+  },
+  {
+    "term": "Two-way Binding",
+    "definition": "Binder data både till och från vyn med [(ngModel)].",
+    "course": "angular"
+  },
+  {
+    "term": "Directive",
+    "definition": "Instruktioner som ändrar DOM eller beteende i templates.",
+    "course": "angular"
+  },
+  {
+    "term": "Structural Directive",
+    "definition": "Ändrar DOM-strukturen, t.ex. *ngIf eller *ngFor.",
+    "course": "angular"
+  },
+  {
+    "term": "Attribute Directive",
+    "definition": "Ändrar utseende eller beteende på element, t.ex. ngClass.",
+    "course": "angular"
+  },
+  {
+    "term": "Service",
+    "definition": "Klass som hanterar logik eller data och delas mellan komponenter.",
+    "course": "angular"
+  },
+  {
+    "term": "Dependency Injection",
+    "definition": "Mekanism för att injicera beroenden (t.ex. services) i komponenter.",
+    "course": "angular"
+  },
+  {
+    "term": "Router",
+    "definition": "Hanterar navigation mellan olika vyer i en Angular-app.",
+    "course": "angular"
+  },
+  {
+    "term": "Route",
+    "definition": "Definition av en URL och vilken komponent som ska visas.",
+    "course": "angular"
+  },
+  {
+    "term": "Observable",
+    "definition": "Struktur för asynkron dataflöde som används mycket i Angular.",
+    "course": "angular"
+  },
+  {
+    "term": "RxJS",
+    "definition": "Bibliotek för att arbeta med Observables och reaktiva flöden.",
+    "course": "angular"
+  },
+  {
+    "term": "HttpClient",
+    "definition": "Service för att göra HTTP-anrop till API:er.",
+    "course": "angular"
+  },
+  {
+    "term": "Lifecycle Hooks",
+    "definition": "Metoder som körs vid olika steg i en komponents livscykel, t.ex. ngOnInit.",
+    "course": "angular"
+  },
+  {
+    "term": "ngOnInit",
+    "definition": "Lifecycle hook som körs när komponenten initialiseras.",
+    "course": "angular"
+  },
+  {
+    "term": "Pipe",
+    "definition": "Transformerar data i templates, t.ex. datum eller textformat.",
+    "course": "angular"
+  },
+  {
+    "term": "Async Pipe",
+    "definition": "Hantera Observables i template utan att manuellt prenumerera.",
+    "course": "angular"
+  },
+  {
+    "term": "Form (Template-driven)",
+    "definition": "Formulär hanterade direkt i template med ngModel.",
+    "course": "angular"
+  },
+  {
+    "term": "Reactive Forms",
+    "definition": "Formulär där logiken hanteras i komponenten med FormControl och FormGroup.",
+    "course": "angular"
+  },
+  {
+    "term": "Standalone Components",
+    "definition": "Komponenter som inte kräver NgModule, nyare Angular-sätt att strukturera appar.",
+    "course": "angular"
+  },
+  {
+    "term": "Zone.js",
+    "definition": "Bibliotek som Angular använder för att upptäcka förändringar och trigga change detection.",
+    "course": "angular"
+  },
+  {
+    "term": "Change Detection",
+    "definition": "Process där Angular uppdaterar vyn när data i komponenten ändras.",
+    "course": "angular"
+  },
+  {
+    "term": "OnPush Strategy",
+    "definition": "Optimerad change detection som bara körs när input-data förändras.",
+    "course": "angular"
+  },
+  {
+    "term": "Input",
+    "definition": "Dekoratör som används för att skicka data från en parent till en child-komponent.",
+    "course": "angular"
+  },
+  {
+    "term": "Output",
+    "definition": "Dekoratör som används för att skicka events från child till parent-komponent.",
+    "course": "angular"
+  },
+  {
+    "term": "EventEmitter",
+    "definition": "Används tillsammans med @Output för att skicka events mellan komponenter.",
+    "course": "angular"
+  },
+  {
+    "term": "ViewChild",
+    "definition": "Ger tillgång till ett DOM-element eller child-komponent i koden.",
+    "course": "angular"
+  },
+  {
+    "term": "ContentChild",
+    "definition": "Används för att komma åt innehåll som projiceras via ng-content.",
+    "course": "angular"
+  },
+  {
+    "term": "ng-content",
+    "definition": "Används för content projection, dvs att skicka in HTML till en komponent.",
+    "course": "angular"
+  },
+  {
+    "term": "Lazy Loading",
+    "definition": "Laddar moduler först när de behövs för bättre prestanda.",
+    "course": "angular"
+  },
+  {
+    "term": "Eager Loading",
+    "definition": "Laddar alla moduler direkt vid app-start.",
+    "course": "angular"
+  },
+  {
+    "term": "Guard",
+    "definition": "Skyddar routes, t.ex. för autentisering eller behörighet.",
+    "course": "angular"
+  },
+  {
+    "term": "CanActivate",
+    "definition": "Route guard som avgör om en route får öppnas.",
+    "course": "angular"
+  },
+  {
+    "term": "CanDeactivate",
+    "definition": "Guard som avgör om man får lämna en route.",
+    "course": "angular"
+  },
+  {
+    "term": "Resolver",
+    "definition": "Hämtar data innan en route aktiveras.",
+    "course": "angular"
+  },
+  {
+    "term": "ActivatedRoute",
+    "definition": "Ger information om aktuell route, t.ex. parametrar.",
+    "course": "angular"
+  },
+  {
+    "term": "RouterLink",
+    "definition": "Direktiv för att navigera mellan routes i templates.",
+    "course": "angular"
+  },
+  {
+    "term": "RouterOutlet",
+    "definition": "Plats i template där routade komponenter visas.",
+    "course": "angular"
+  },
+  {
+    "term": "Query Parameters",
+    "definition": "Extra parametrar i URL som kan läsas i Angular.",
+    "course": "angular"
+  },
+  {
+    "term": "FormControl",
+    "definition": "Representerar ett enskilt formulärfält i Reactive Forms.",
+    "course": "angular"
+  },
+  {
+    "term": "FormGroup",
+    "definition": "Samling av flera FormControls.",
+    "course": "angular"
+  },
+  {
+    "term": "FormArray",
+    "definition": "Dynamisk lista av formulärfält i Reactive Forms.",
+    "course": "angular"
+  },
+  {
+    "term": "Validator",
+    "definition": "Funktion som validerar formulärdata.",
+    "course": "angular"
+  },
+  {
+    "term": "Custom Validator",
+    "definition": "Egen funktion för att validera formulär.",
+    "course": "angular"
+  },
+  {
+    "term": "ngModel",
+    "definition": "Direktiv för two-way binding i template-driven forms.",
+    "course": "angular"
+  },
+  {
+    "term": "TrackBy",
+    "definition": "Optimerar rendering i *ngFor genom att identifiera objekt.",
+    "course": "angular"
+  },
+  {
+    "term": "ngIf",
+    "definition": "Visar eller döljer element baserat på ett villkor.",
+    "course": "angular"
+  },
+  {
+    "term": "ngFor",
+    "definition": "Loopar igenom listor i template.",
+    "course": "angular"
+  },
+  {
+    "term": "ngSwitch",
+    "definition": "Visar olika innehåll baserat på ett värde.",
+    "course": "angular"
+  },
+  {
+    "term": "HostBinding",
+    "definition": "Binder egenskaper till host-elementet från en direktiv eller komponent.",
+    "course": "angular"
+  },
+  {
+    "term": "HostListener",
+    "definition": "Lyssnar på events på host-elementet.",
+    "course": "angular"
+  },
+  {
+    "term": "Environment",
+    "definition": "Konfigurationsfiler för olika miljöer, t.ex. dev och prod.",
+    "course": "angular"
+  },
+  {
+    "term": "Angular CLI",
+    "definition": "Kommandoradsverktyg för att skapa, bygga och hantera Angular-appar.",
+    "course": "angular"
+  },
+  {
+    "term": "ng serve",
+    "definition": "Startar utvecklingsservern.",
+    "course": "angular"
+  },
+  {
+    "term": "ng build",
+    "definition": "Bygger appen för produktion.",
+    "course": "angular"
+  },
+  {
+    "term": "ng generate",
+    "definition": "Skapar komponenter, services m.m.",
+    "course": "angular"
+  },
+  {
+    "term": "Standalone API",
+    "definition": "Nyare Angular-API för att slippa NgModules.",
+    "course": "angular"
+  },
+  {
+    "term": "Signals",
+    "definition": "Ny reaktiv modell i Angular för att hantera state.",
+    "course": "angular"
+  },
+  {
+    "term": "Computed Signal",
+    "definition": "Härledd state baserad på andra signals.",
+    "course": "angular"
+  },
+  {
+    "term": "Effect",
+    "definition": "Reagerar på förändringar i signals och kör kod.",
+    "course": "angular"
+  },
+  {
+    "term": "Injection Token",
+    "definition": "Används för att definiera unika beroenden i dependency injection.",
+    "course": "angular"
+  },
+  {
+    "term": "Provider",
+    "definition": "Definierar hur en dependency skapas och levereras.",
+    "course": "angular"
+  },
+  {
+    "term": "Tree-shaking",
+    "definition": "Tar bort oanvänd kod vid build för mindre bundle.",
+    "course": "angular"
+  },
+  {
+    "term": "Ahead-of-Time (AOT)",
+    "definition": "Kompilerar Angular-kod vid build istället för runtime.",
+    "course": "angular"
+  },
+  {
+    "term": "Just-in-Time (JIT)",
+    "definition": "Kompilerar Angular-kod i webbläsaren under körning.",
+    "course": "angular"
+  },
+  {
+    "term": "SSR (Server-Side Rendering)",
+    "definition": "Renderar Angular-appar på servern för bättre SEO och prestanda.",
+    "course": "angular"
+  },
+  {
+    "term": "Angular Universal",
+    "definition": "Verktyg för att implementera SSR i Angular.",
+    "course": "angular"
+  },
+  {
+    "term": "@if",
+    "definition": "Ny control flow-syntax i Angular för villkorlig rendering, ersätter *ngIf.",
+    "course": "angular"
+  }
+]

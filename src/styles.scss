@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/colors.scss';
+
+body {
+  margin: 0;
+  background: var(--color-secondary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
