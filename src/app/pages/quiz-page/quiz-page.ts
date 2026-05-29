@@ -30,19 +30,14 @@ export class QuizPage {
 
   showAnswerFeedback = false;
 
-  questionLimit = 10;
+  questionLimit: number | null = null;
 
-  quizMode: 'term-to-definition' | 'definition-to-term' = 'term-to-definition';
+  quizMode: 'term-to-definition' | 'definition-to-term' | null = null;
 
   correctAnswer!: string;
 
   constructor() {
     this.words = this.glossaryService.getWords();
-    this.shuffledWords = [...this.words]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, this.questionLimit);
-    this.shuffledWords = this.shuffleWords(this.words).slice(0, this.questionLimit);
-    this.generateQuestion();
   }
 
   shuffleWords(words: IGlossaryWord[]): IGlossaryWord[] {
@@ -63,11 +58,6 @@ export class QuizPage {
 
   generateAnswerOptions(): void {
     this.correctAnswer = this.getCorrectAnswer();
-    // const incorrectAnswers = this.shuffledWords
-    //   .filter((word) => word.term !== this.currentQuestion.term)
-    //   .sort(() => Math.random() - 0.5)
-    //   .slice(0, 3)
-    //   .map((word) => (this.quizMode === 'term-to-definition' ? word.definition : word.term));
     const incorrectAnswers = this.shuffleWords(this.words)
       .filter((word) => word.term !== this.currentQuestion.term)
       .slice(0, 3)
@@ -118,8 +108,11 @@ export class QuizPage {
     return this.currentQuestion.term;
   }
 
-  changeQuizMode(mode: 'term-to-definition' | 'definition-to-term'): void {
+  changeQuizMode(mode: 'term-to-definition' | 'definition-to-term' | null): void {
     this.quizMode = mode;
+    if (!mode) {
+      return;
+    }
     this.generateAnswerOptions();
   }
 
@@ -130,7 +123,7 @@ export class QuizPage {
 
     this.shuffledWords = [...this.words]
       .sort(() => Math.random() - 0.5)
-      .slice(0, this.questionLimit);
+      .slice(0, this.questionLimit ?? this.words.length);
 
     this.generateQuestion();
   }

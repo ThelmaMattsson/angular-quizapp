@@ -1,14 +1,22 @@
 <div class="settings-panel">
-  <label> Number of questions </label>
-  <select [value]="questionLimit" (change)="questionLimitChange.emit(+$any($event.target).value)">
-    <option [value]="10">10</option>
-    <option [value]="20">20</option>
-    <option [value]="50">50</option>
-    <option [value]="totalWords">All</option>
+  <select
+    class="select-style"
+    [value]="questionLimit"
+    (change)="questionLimitChange.emit(+$any($event.target).value)"
+  >
+    <option value="null" disabled>Question amount</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+    <option value="50">50</option>
+    <option value="totalWords">All</option>
   </select>
 
-  <label> Quiz mode </label>
-  <select [value]="quizMode" (change)="quizModeChange.emit($any($event.target).value)">
+  <select
+    class="select-style"
+    [value]="quizMode"
+    (change)="quizModeChange.emit($any($event.target).value)"
+  >
+    <option value="null" disabled>Quiz mode</option>
     <option value="term-to-definition">Term to Definition</option>
     <option value="definition-to-term">Definition to Term</option>
   </select>

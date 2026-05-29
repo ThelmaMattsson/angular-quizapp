@@ -5,6 +5,15 @@
     @if (quizFinished) {
       <h2>Du fick {{ score }} av {{ shuffledWords.length }} rätt!</h2>
       <button class="restart-btn" (click)="startQuiz()">Starta om</button>
+    } @else if (quizMode === null || questionLimit === null) {
+      <app-quiz-settings
+        [questionLimit]="questionLimit"
+        [quizMode]="quizMode"
+        [totalWords]="words.length"
+        (questionLimitChange)="onQuestionLimitChange($event)"
+        (quizModeChange)="changeQuizMode($event)"
+      ></app-quiz-settings>
+      <p class="text-color question-text">Välj antal frågor och quiz-läge för att starta quizet</p>
     } @else {
       <app-quiz-settings
         [questionLimit]="questionLimit"
@@ -32,7 +41,7 @@
         }
       </div>
       <p>{{ score }}/{{ questionIndex }}</p>
-      <p>{{ questionIndex + 1 }}/{{ questionLimit }}</p>
+      <p>{{ questionIndex + 1 }}/{{ shuffledWords.length }}</p>
     }
   </div>
 </section>
