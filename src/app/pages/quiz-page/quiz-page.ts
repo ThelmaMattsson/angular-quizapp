@@ -41,7 +41,12 @@ export class QuizPage {
     this.shuffledWords = [...this.words]
       .sort(() => Math.random() - 0.5)
       .slice(0, this.questionLimit);
+    this.shuffledWords = this.shuffleWords(this.words).slice(0, this.questionLimit);
     this.generateQuestion();
+  }
+
+  shuffleWords(words: IGlossaryWord[]): IGlossaryWord[] {
+    return [...words].sort(() => Math.random() - 0.5);
   }
 
   startQuiz(): void {
@@ -58,9 +63,13 @@ export class QuizPage {
 
   generateAnswerOptions(): void {
     this.correctAnswer = this.getCorrectAnswer();
-    const incorrectAnswers = this.shuffledWords
+    // const incorrectAnswers = this.shuffledWords
+    //   .filter((word) => word.term !== this.currentQuestion.term)
+    //   .sort(() => Math.random() - 0.5)
+    //   .slice(0, 3)
+    //   .map((word) => (this.quizMode === 'term-to-definition' ? word.definition : word.term));
+    const incorrectAnswers = this.shuffleWords(this.words)
       .filter((word) => word.term !== this.currentQuestion.term)
-      .sort(() => Math.random() - 0.5)
       .slice(0, 3)
       .map((word) => (this.quizMode === 'term-to-definition' ? word.definition : word.term));
     const correctAnswer = this.getCorrectAnswer();
