@@ -36,8 +36,16 @@ export class QuizPage {
 
   correctAnswer!: string;
 
+  highScore = 0;
+
   constructor() {
     this.words = this.glossaryService.getWords();
+
+    const savedHighScore = localStorage.getItem('highscore');
+
+    if (savedHighScore) {
+      this.highScore = Number(savedHighScore);
+    }
   }
 
   shuffleWords(words: IGlossaryWord[]): IGlossaryWord[] {
@@ -84,6 +92,12 @@ export class QuizPage {
 
       if (this.questionIndex >= this.shuffledWords.length - 1) {
         this.quizFinished = true;
+
+        if (this.score > this.highScore) {
+          this.highScore = this.score;
+          localStorage.setItem('highscore', this.highScore.toString());
+        }
+
         return;
       }
       this.questionIndex++;

@@ -4,6 +4,9 @@
   <div class="question-card">
     @if (quizFinished) {
       <h2>Du fick {{ score }} av {{ shuffledWords.length }} rätt!</h2>
+      <p>
+        Highscore: <strong>{{ highScore }}</strong>
+      </p>
       <button class="restart-btn" (click)="startQuiz()">Starta om</button>
     } @else if (quizMode === null || questionLimit === null) {
       <app-quiz-settings
@@ -22,6 +25,9 @@
         (questionLimitChange)="onQuestionLimitChange($event)"
         (quizModeChange)="changeQuizMode($event)"
       ></app-quiz-settings>
+      <p class="highscore">
+        Highscore: <strong>{{ highScore }}</strong>
+      </p>
       <p class="text-color question-text">
         Vad är <strong>{{ getQuestionText() }}</strong
         >?
